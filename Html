@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Simple Chat</title>
+
+<style>
+body{
+    font-family:sans-serif;
+    margin:0;
+    background:#f5f5f5;
+}
+
+#chat{
+    height:80vh;
+    overflow-y:auto;
+    padding:10px;
+}
+
+.msg{
+    background:white;
+    margin:5px 0;
+    padding:10px;
+    border-radius:10px;
+}
+
+.bottom{
+    display:flex;
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:white;
+    padding:10px;
+}
+
+input{
+    flex:1;
+    padding:10px;
+}
+
+button{
+    padding:10px;
+}
+</style>
+</head>
+<body>
+
+<div id="chat"></div>
+
+<div class="bottom">
+    <input id="message" placeholder="メッセージ">
+    <button onclick="send()">送信</button>
+</div>
+
+<script>
+function send(){
+
+    let text=document.getElementById("message").value;
+
+    if(text==="") return;
+
+    let div=document.createElement("div");
+    div.className="msg";
+    div.textContent=text;
+
+    document.getElementById("chat").appendChild(div);
+
+    document.getElementById("message").value="";
+}
+</script>
+
+</body>
+</html>
